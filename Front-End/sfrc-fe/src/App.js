@@ -5,6 +5,7 @@ import './App.css';
 
 import NavBar from './Components/NavBar/NavBar';
 import SignUpPageView from './Components/SignUpPage/SignUpPageView';
+import LoginPageView from './Components/LoginPage/LoginPageView';
 
 class App extends Component {
   constructor() {
@@ -58,7 +59,11 @@ class App extends Component {
         <NavBar isLoggedIn={this.state.isLoggedIn} />
 
         <Route exact path="/signup"
-          render={props => <SignUpPageView {...props} /> }
+          render={props => <SignUpPageView {...props} isLoggedIn={this.state.isLoggedIn} /> }
+        />
+
+        <Route exact path="/login"
+          render={props => <LoginPageView {...props} isLoggedIn={this.state.isLoggedIn} /> }
         />
         
       </div>

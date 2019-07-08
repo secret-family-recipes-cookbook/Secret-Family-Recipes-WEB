@@ -1,17 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 
-import SignUpForm from './SignUpForm';
+import LoginForm from './LoginForm';
 
-class SignUpPageView extends React.Component {
+class LoginPageView extends React.Component {
     state = {
         login: {
             username: '',
             password: ''
         }
-        
     };
-
 
     // event handler that updates the form fields when it is changed by the user
     handleChanges = e => {
@@ -23,34 +21,32 @@ class SignUpPageView extends React.Component {
         });
     }
 
-    
     handleSubmit = event => {
         event.preventDefault();
-
         // some error checking
         if (!this.state.login.username || !this.state.login.password) {
             alert("Please provide a username and password.");
         } else {
-            // axios call that posts the user login info (username & password) to the backend users table
+            // axios call that posts the entered user name and password to the backend users table
             axios
-            .post('backend api address', this.state.login)
-            .then(res => {
-                console.log('response', res.data.token)
-                localStorage.setItem('jwt', res.data.token);
-                this.props.isLoggedIn = true;   
-            })
-            .catch(err => {
-                console.log(err);
-                alert("Failed sign up attempt. That username might already exist.");
-            })
-        }
+                .post('backend api endpoint', this.state.login)
+                .then(res => {
+                    console.log('response', res.data.token)
+                    localStorage.setItem('jwt', res.data.token);
+                    this.props.isLoggedIn = true;                     
+                })
+                .catch(err => {
+                    console.log(err);
+                    alert("Login failed. Please check username and password.");
+                })
+        } 
     }
 
-    // renders the signup form component and passes it props
+    // renders the login form component and passes it props
     render() {
         return (
             <div>
-                <SignUpForm 
+                <LoginForm
                     handleChanges={this.handleChanges}
                     submitLogin={this.handleSubmit}
                     login={this.state.login}
@@ -60,4 +56,4 @@ class SignUpPageView extends React.Component {
     }
 }
 
-export default SignUpPageView;
+export default LoginPageView;
