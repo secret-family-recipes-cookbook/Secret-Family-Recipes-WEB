@@ -1,0 +1,31 @@
+{
+  "name": "Secret-Family-Recipes-WEB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/secret-family-recipes-cookbook/Secret-Family-Recipes-WEB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/secret-family-recipes-cookbook/Secret-Family-Recipes-WEB/issues"
+  },
+  "homepage": "https://github.com/secret-family-recipes-cookbook/Secret-Family-Recipes-WEB#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "knex": "^0.18.3",
+    "sqlite3": "^4.0.9"
+  },
+  "devDependencies": {
+    "knex-cleaner": "^1.1.4",
+    "nodemon": "^1.19.1"
+  }
+}
