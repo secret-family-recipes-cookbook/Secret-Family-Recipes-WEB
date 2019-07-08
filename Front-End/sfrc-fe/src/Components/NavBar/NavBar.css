@@ -1,0 +1,14 @@
+.navbar-wrapper {
+    width: 100%;
+    background: black;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
