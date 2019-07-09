@@ -4,8 +4,11 @@ import { Route } from 'react-router-dom';
 import './App.css';
 
 import NavBar from './Components/NavBar/NavBar';
+import HomePage from './Components/HomePage/HomePage';
 import SignUpPageView from './Components/SignUpPage/SignUpPageView';
 import LoginPageView from './Components/LoginPage/LoginPageView';
+import RecipeListView from './Components/RecipesPage/RecipeListView';
+import IndivRecipeView from './Components/IndividualRecipe/IndivRecipeView';
 
 class App extends Component {
   constructor() {
@@ -13,6 +16,7 @@ class App extends Component {
     this.state = {
       jwt: '',
       isLoggedIn: '',
+      userid: ''
     };
   }
 
@@ -49,6 +53,7 @@ class App extends Component {
     this.setState({
     jwt: '',
     isLoggedIn: false,
+    userid: '',
     });
   }
 
@@ -58,12 +63,22 @@ class App extends Component {
 
         <NavBar isLoggedIn={this.state.isLoggedIn} />
 
+        <Route exact path="/" component = {HomePage} />
+
         <Route exact path="/signup"
-          render={props => <SignUpPageView {...props} isLoggedIn={this.state.isLoggedIn} /> }
+          render={props => <SignUpPageView {...props} /> }
         />
 
         <Route exact path="/login"
-          render={props => <LoginPageView {...props} isLoggedIn={this.state.isLoggedIn} /> }
+          render={props => <LoginPageView {...props} /> }
+        />
+
+        <Route exact path="/recipes"
+          render={props => <RecipeListView {...props} /> }
+        />
+
+        <Route exact path='/recipe-list/:id' 
+          render={props => <IndivRecipeView {...props} />}
         />
         
       </div>

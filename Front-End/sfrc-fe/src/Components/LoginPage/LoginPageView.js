@@ -27,18 +27,21 @@ class LoginPageView extends React.Component {
         if (!this.state.login.username || !this.state.login.password) {
             alert("Please provide a username and password.");
         } else {
-            // axios call that posts the entered user name and password to the backend users table
+            // axios call that checks the entered user name and password to the backend users table
             axios
                 .post('backend api endpoint', this.state.login)
                 .then(res => {
                     console.log('response', res.data.token)
                     localStorage.setItem('jwt', res.data.token);
-                    this.props.isLoggedIn = true;                     
+                    this.props.isLoggedIn = true;
+                                         
                 })
                 .catch(err => {
                     console.log(err);
                     alert("Login failed. Please check username and password.");
                 })
+
+            // axios call that gets the user id
         } 
     }
 
