@@ -48,7 +48,7 @@ class App extends Component {
 
   logout = () => {
     console.log("logging out");
-    this.logout_notify();
+    // this.logout_notify();
     localStorage.clear();
     this.setState({
     jwt: '',
@@ -61,7 +61,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <NavBar isLoggedIn={this.state.isLoggedIn} />
+        <NavBar isLoggedIn={this.state.isLoggedIn} logout={this.logout} />
 
         <Route exact path="/" component = {HomePage} />
 
