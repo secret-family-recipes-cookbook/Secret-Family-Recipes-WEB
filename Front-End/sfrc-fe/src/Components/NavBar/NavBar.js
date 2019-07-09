@@ -32,7 +32,7 @@ const NavBar = props => {
                         <h1>Add Recipe</h1>
                     </Link>
 
-                    <Link to='/logout'>
+                    <Link to='/' onClick={props.logout}>
                         <h1>Logout</h1>
                     </Link>
 
