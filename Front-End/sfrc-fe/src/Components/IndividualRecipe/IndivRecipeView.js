@@ -5,7 +5,7 @@ import IndivRecipe from './IndivRecipe';
 
 class IndivRecipeView extends React.Component {
     state = {
-        recipe: []
+        recipes: []
     };
 
     componentDidMount() {
@@ -14,12 +14,15 @@ class IndivRecipeView extends React.Component {
             .then(res => {
                 console.log('response', res.data)
             })
+            .catch(err => {
+                console.log('Error retrieving recipe', err);
+            });
     }
 
     render() {
         return (
             <IndivRecipe 
-                recipe={this.props.recipe}
+                recipes={this.props.recipes}
                 match={this.props.match}
             />
         )
