@@ -2,11 +2,11 @@
   "name": "Secret-Family-Recipes-WEB",
   "version": "1.0.0",
   "description": "",
-  "main": "./Backend/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./Backend/index.js",
+    "start": "node index.js",
     "test": "cross-env DB_ENV=testing jest --watch --verbose",
-    "server": "nodemon ./Backend/index.js"
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
