@@ -9,6 +9,7 @@ import SignUpPageView from './Components/SignUpPage/SignUpPageView';
 import LoginPageView from './Components/LoginPage/LoginPageView';
 import RecipeListView from './Components/RecipesPage/RecipeListView';
 import IndivRecipeView from './Components/IndividualRecipe/IndivRecipeView';
+import AddRecipeView from './Components/AddRecipePage/AddRecipeView';
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class App extends Component {
     this.state = {
       jwt: '',
       isLoggedIn: '',
-      userid: ''
+      
     };
   }
 
@@ -79,6 +80,10 @@ class App extends Component {
 
         <Route exact path='/recipe-list/:id' 
           render={props => <IndivRecipeView {...props} />}
+        />
+
+        <Route exact path='/addrecipe' 
+          render={props => <AddRecipeView {...props} />}
         />
         
       </div>
