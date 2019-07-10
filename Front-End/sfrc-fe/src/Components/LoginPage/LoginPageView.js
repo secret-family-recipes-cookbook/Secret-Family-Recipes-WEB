@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 
 class LoginPageView extends React.Component {
     state = {
-        login: {
+        user: {
             username: '',
             password: ''
         }
@@ -14,7 +14,7 @@ class LoginPageView extends React.Component {
     // event handler that updates the form fields when it is changed by the user
     handleChanges = e => {
         this.setState({
-            login: {
+            user: {
                 ...this.state.login,
                 [e.target.name]: e.target.value
             } 
@@ -29,7 +29,7 @@ class LoginPageView extends React.Component {
         } else {
             // axios call that checks the entered user name and password to the backend users table
             axios
-                .post('backend api endpoint', this.state.login)
+                .post('https://anthony-secret-family-recipes.herokuapp.com/api/auth/login', this.state.login)
                 .then(res => {
                     console.log('response', res.data.token)
                     localStorage.setItem('jwt', res.data.token);
@@ -52,7 +52,7 @@ class LoginPageView extends React.Component {
                 <LoginForm
                     handleChanges={this.handleChanges}
                     submitLogin={this.handleSubmit}
-                    login={this.state.login}
+                    login={this.state.user}
                 />
             </div>
         )
