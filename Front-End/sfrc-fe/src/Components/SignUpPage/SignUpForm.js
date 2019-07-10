@@ -13,7 +13,7 @@ function SignUpForm(props) {
                         placeholder="type a username"
                         type="text"
                         onChange={props.handleChanges}
-                        value={props.login.username}
+                        value={props.user.username}
                     />
                 </InputGroup>
                 <br />
@@ -25,7 +25,7 @@ function SignUpForm(props) {
                         type="text" 
                         step="1"
                         onChange={props.handleChanges}
-                        value={props.login.password} 
+                        value={props.user.password} 
                     />
                 <InputGroupAddon addonType="append">
                     <Button color="secondary">Sign Up</Button>

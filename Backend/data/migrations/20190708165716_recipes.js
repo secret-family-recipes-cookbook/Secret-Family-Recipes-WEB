@@ -17,6 +17,10 @@ exports.up = function (knex, Promise) {
             .notNullable()
         
         tbl
+            .string("ingredients")
+            .notNullable()
+        
+        tbl
             .string("category")
             .notNullable()
         

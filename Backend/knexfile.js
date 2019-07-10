@@ -37,14 +37,17 @@ module.exports = {
       directory: './data/seeds'
     }
   },
-    production: {
-      client: 'postgresql',
-      connection: prodDbConnection,  
+    production:{
+      client: 'sqlite3',
+      connection: {
+        filename: './Backend/data/recipeBook.sqlite3',
+      },
+      useNullAsDefault: true,
       migrations: {
-        directory: './data/migrations',
+        directory: './Backend/data/migrations'
       },
       seeds: {
-        directory: './data/seeds'
-      },
+        directory: './Backend/data/seeds'
+      }
     }
   };

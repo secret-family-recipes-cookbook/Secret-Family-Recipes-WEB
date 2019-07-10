@@ -1,0 +1,250 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    /* height: 100%; */
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+h1, h2, h3, h4, h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-family: 'Rubik', sans-serif;
+}
+h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+    padding-bottom: 10px;
+  }
+  h4 {
+    font-size: 2.5rem;
+    padding-bottom: 10px;
+  }
+  p {
+    line-height: 1.5;
+    font-size: 1.6rem;
+    padding-bottom: 10px;
+  }
+  /* body {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+  } */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    padding-bottom: 15px;
+    background-color:#E27D60;
+    padding-top: 10px;
+  }
+  nav img {
+    width: 60px;
+  }
+  nav a {
+    padding-top: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+  }
+  .container {
+    width: 1000px;
+    margin: 0 auto;
+    border: 1px solid black;
+    background-color: #85dcb8;
+  }
+  .container .mainSection {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #85dcb8;
+  }
+
+  .container .mainSection .secondimg {
+    width: 440px;
+    /* height: 300px; */
+    height: auto;
+    /* padding: 25px; */
+    border-radius: 8px;
+  }
+  
+  .container .mainSection .mainText {
+    width: 550px;
+    padding-top: 70px;
+    text-align: center;
+  }
+
+  .section {
+    width: 100%;
+    margin: 45px 0 45px 0;
+    display: flex;
+  }
+  .tabs {
+    width: 100%;
+  }
+  .tabs .tabs-items {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+  }
+  .tabs .tabs-item {
+    display: none;
+    width: 75%;
+  }
+  .tabs .tabs-item .tabs-item-title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+  .tabs .tabs-item-selected {
+    display: block;
+  }
+  .tabs .tabs-links {
+    display: flex;
+    justify-content: space-between;
+    background-color: #C38D9E;
+  }
+  .tabs .tabs-link {
+    width: 1000px;
+    padding: 15px 50px;
+    font-size: 1.8rem;
+    background-color: #E27D60;
+    border-right: 1px solid white;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+  .tabs .tabs-link:hover {
+    background-color: #C38D9E;
+    border-right: 1px solid #E27D60;
+  }
+  @media (max-width:500px) {
+    .tabs .tabs-link {
+      padding: 20px 30px;
+    }
+  }
+  .tabs .tabs-link-selected {
+    z-index: 2;
+    background-color: #C38D9E;
+    color: #ffffff;
+    transition-duration: 0.4s;
+  }
+  .tabs .tabs-link-selected:hover {
+    border-right: 1px solid #C38D9E;
+    background-color: #C38D9E;
+  }
+  .team {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+  }
+  .team img {
+    border-radius: 25%;
+    max-width: 20%;
+    padding: 0 25px;
+  }
+  @media (max-width:500px) {
+    .team img {
+      max-width: 60%;
+      height: 210px;
+    }
+  }
+  @media (max-width:500px) {
+    .team #pic-fix {
+      height: 180px;
+    }
+  }
+  @media (max-width:500px) and (max-width:500px) {
+    .team {
+      flex-direction: column;
+    }
+  }
+  .team .text h2{
+    margin: 0 auto;
+  }
+  .team .text h3 {
+    /* margin: 0 auto; */
+    padding-left: 25px;
+  }
+  .team p {
+    margin: 25px 25px;
+    font-style: initial;
+  }
+  .team a {
+    width: 100%;
+    text-decoration: none;
+    font-style: initial;
+    color: black;
+  }
+  .text {
+    width: 100%;
+    padding: 20px;
+  }
+  .container .github {
+    width: 20%;
+    background-color: #E8A87C;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    margin-left: 25px;
+    padding: 5px 5px;
+    border: 1px solid #333;
+  }
+  .container .github:hover {
+    border-radius: 9px 0px 9px 0px;
+    background-color: #C38D9E;
+  }

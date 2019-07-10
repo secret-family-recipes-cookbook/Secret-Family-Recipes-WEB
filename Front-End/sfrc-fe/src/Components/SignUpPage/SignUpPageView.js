@@ -5,7 +5,7 @@ import SignUpForm from './SignUpForm';
 
 class SignUpPageView extends React.Component {
     state = {
-        login: {
+        user: {
             username: '',
             password: ''
         }
@@ -16,7 +16,7 @@ class SignUpPageView extends React.Component {
     // event handler that updates the form fields when it is changed by the user
     handleChanges = e => {
         this.setState({
-            login: {
+            user: {
                 ...this.state.login,
                 [e.target.name]: e.target.value
             } 
@@ -28,12 +28,12 @@ class SignUpPageView extends React.Component {
         event.preventDefault();
 
         // some error checking
-        if (!this.state.login.username || !this.state.login.password) {
+        if (!this.state.user.username || !this.state.user.password) {
             alert("Please provide a username and password.");
         } else {
             // axios call that posts the user login info (username & password) to the backend users table
             axios
-            .post('backend api address', this.state.login)
+            .post('https://anthony-secret-family-recipes.herokuapp.com/api/auth/register', this.state.user)
             .then(res => {
                 console.log('response', res.data.token)
                 localStorage.setItem('jwt', res.data.token);
@@ -53,7 +53,7 @@ class SignUpPageView extends React.Component {
                 <SignUpForm 
                     handleChanges={this.handleChanges}
                     submitLogin={this.handleSubmit}
-                    login={this.state.login}
+                    login={this.state.user}
                 />
             </div>
         )
