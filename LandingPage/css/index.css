@@ -187,3 +187,64 @@ h1 {
     border-right: 1px solid #C38D9E;
     background-color: #C38D9E;
   }
+  .team {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+  }
+  .team img {
+    border-radius: 25%;
+    max-width: 20%;
+    padding: 0 25px;
+  }
+  @media (max-width:500px) {
+    .team img {
+      max-width: 60%;
+      height: 210px;
+    }
+  }
+  @media (max-width:500px) {
+    .team #pic-fix {
+      height: 180px;
+    }
+  }
+  @media (max-width:500px) and (max-width:500px) {
+    .team {
+      flex-direction: column;
+    }
+  }
+  .team .text h2{
+    margin: 0 auto;
+  }
+  .team .text h3 {
+    /* margin: 0 auto; */
+    padding-left: 25px;
+  }
+  .team p {
+    margin: 25px 25px;
+    font-style: initial;
+  }
+  .team a {
+    width: 100%;
+    text-decoration: none;
+    font-style: initial;
+    color: black;
+  }
+  .text {
+    width: 100%;
+    padding: 20px;
+  }
+  .container .github {
+    width: 20%;
+    background-color: #E8A87C;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    margin-left: 25px;
+    padding: 5px 5px;
+    border: 1px solid #333;
+  }
+  .container .github:hover {
+    border-radius: 9px 0px 9px 0px;
+    background-color: #C38D9E;
+  }
