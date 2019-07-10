@@ -13,7 +13,7 @@ function getAllRecipes() {
     .join('categories', 'recipes.category_id', 'categories.id')
     .select(
         'recipes.id',
-        'recipes.name',
+        'recipes.title',
         {
             category: 'categories.name'
         },
@@ -30,7 +30,7 @@ function getRecipeById(id) {
     .join('categories', 'recipes.category_id', 'categories.id')
     .select(
         'recipes.id',
-        'recipes.name',
+        'recipes.title',
         {
             category: 'categories.name'
         },
