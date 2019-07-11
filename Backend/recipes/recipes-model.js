@@ -7,7 +7,9 @@ module.exports = {
     addRecipe,
     removeRecipe,
     updateRecipe,
-    getRecipeByUserId
+    getRecipeByUserId,
+    findBy,
+    getRecipeByName
 }
 
 function getAllRecipes() {
@@ -69,4 +71,16 @@ function updateRecipe(id, changes) {
     .where({ id })
     .update(changes)
 }
+
+function findBy(filter) {
+    return db('recipes').where(filter)
+}
+
+function getRecipeByName(searchString) {
+    searchString = '%' + searchString + '%';
+    console.log('Searching for', searchString);
+    return db('recipes')
+    .where('title', 'like', searchString) 
+    .orWhere('category', 'like', searchString);
+  }
 
