@@ -54,7 +54,7 @@ class App extends Component {
     this.setState({
     jwt: '',
     isLoggedIn: false,
-    userid: '',
+    user_id: '',
     });
   }
 
@@ -67,11 +67,11 @@ class App extends Component {
         <Route exact path="/" component = {HomePage} />
 
         <Route exact path="/signup"
-          render={props => <SignUpPageView {...props} /> }
+          render={props => <SignUpPageView {...props} isLoggedIn={this.state.isLoggedIn}/> }
         />
 
         <Route exact path="/login"
-          render={props => <LoginPageView {...props} /> }
+          render={props => <LoginPageView {...props} isLoggedIn={this.state.isLoggedIn}/> }
         />
 
         <Route exact path="/recipes"

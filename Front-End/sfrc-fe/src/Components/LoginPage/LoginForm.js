@@ -12,7 +12,7 @@ function LoginForm(props) {
                         placeholder=""
                         type="text"
                         onChange={props.handleChanges}
-                        value={props.login.username} 
+                        value={props.user.username} 
                     />
                 </InputGroup>
                 <br />
@@ -22,9 +22,9 @@ function LoginForm(props) {
                         name="password" 
                         placeholder="" 
                         type="text" 
-                        step="1"
+                        
                         onChange={props.handleChanges}
-                        value={props.login.password} 
+                        value={props.user.password} 
                     />
                 <InputGroupAddon addonType="append">
                     <Button color="secondary">Log In</Button>

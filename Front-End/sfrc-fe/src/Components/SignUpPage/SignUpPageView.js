@@ -17,14 +17,14 @@ class SignUpPageView extends React.Component {
     handleChanges = e => {
         this.setState({
             user: {
-                ...this.state.login,
+                ...this.state.user,
                 [e.target.name]: e.target.value
             } 
         });
     }
 
     
-    handleSubmit = event => {
+    submitLogin = event => {
         event.preventDefault();
 
         // some error checking
@@ -34,10 +34,14 @@ class SignUpPageView extends React.Component {
             // axios call that posts the user login info (username & password) to the backend users table
             axios
             .post('https://anthony-secret-family-recipes.herokuapp.com/api/auth/register', this.state.user)
+            // .post('http://localhost:2400/api/auth/register', this.state.user)
             .then(res => {
-                console.log('response', res.data.token)
+                console.log(res, res.data.token)
                 localStorage.setItem('jwt', res.data.token);
-                this.props.isLoggedIn = true;   
+                localStorage.setItem('isLoggedIn', true);
+                localStorage.setItem('user_id', res.data.id);
+                // window.location.reload();
+                this.props.history.push('/recipes');   
             })
             .catch(err => {
                 console.log(err);
@@ -52,8 +56,8 @@ class SignUpPageView extends React.Component {
             <div>
                 <SignUpForm 
                     handleChanges={this.handleChanges}
-                    submitLogin={this.handleSubmit}
-                    login={this.state.user}
+                    submitLogin={this.submitLogin}
+                    user={this.state.user}
                 />
             </div>
         )

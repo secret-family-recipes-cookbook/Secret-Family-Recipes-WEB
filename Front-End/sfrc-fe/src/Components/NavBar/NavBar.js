@@ -12,28 +12,29 @@ const NavBar = props => {
 
                 <div className="link-container">
                 
-                    <Link to='/'>
+                    {/* <Link to='/'>
                         <h1>Home</h1>
-                    </Link>
-
+                    </Link> */}
+                    <div>
                     <Link to='/signup'>
-                        <h1>Sign Up</h1>
+                        <h1>{props.isLoggedIn ? null : "Sign Up"}</h1>
                     </Link>
+                    </div>
 
                     <Link to='/login'>
-                        <h1>Login</h1>
+                        <h1>{props.isLoggedIn ? null : "Login"}</h1>
                     </Link>
 
                     <Link to='/recipes'>
-                        <h1>Recipes</h1>
+                        <h1>{props.isLoggedIn ? "Recipes" : null}</h1>
                     </Link>
-
+                    
                     <Link to='/addrecipe'>
-                        <h1>Add Recipe</h1>
+                        <h1>{props.isLoggedIn ? "Add Recipe" : null}</h1>
                     </Link>
 
                     <Link to='/' onClick={props.logout}>
-                        <h1>Logout</h1>
+                        <h1>{props.isLoggedIn ? "Logout" : null}</h1>
                     </Link>
 
                 </div>

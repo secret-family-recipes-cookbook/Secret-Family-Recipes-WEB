@@ -13,11 +13,8 @@ class AddRecipeView extends React.Component {
                 ingredients: '',
                 directions: '',
                 category: '',
-            },
-            dropdownOpen: false,
-        };
-
-        this.toggle = this.toggle.bind(this);
+            },  
+        };       
     }
     
 
@@ -32,22 +29,16 @@ class AddRecipeView extends React.Component {
         });
     };
 
-    // toggles the dropdown 
-    toggle() {
-        this.setState(prevState => ({
-            dropdownOpen: !prevState.dropdownOpen
-        }));
-    }
-
     // makes axios call to post recipe & ingredients
     addRecipe = e => {
         e.preventDefault();
-        if (!this.state.recipe.title || !this.state.recipe.ingredients || this.state.recipe.directions) {
-            alert("Please fill out title, ingredients, and directions.");
+        if (!this.state.recipe.title || !this.state.recipe.ingredients || this.state.recipe.directions || this.state.recipe.category) {
+            alert("Please fill out category, title, ingredients, and directions.");
         } else {
             // axios call to post recipe to recipe table
             axios
-                .post(' endpoint for posting recipe', this.state.recipe)
+                // .post('https://anthony-secret-family-recipes.herokuapp.com/api/recipes', this.state.recipe)
+                .post('http://localhost:2400/api/recipes', this.state.recipe)
                 .then(res => {
                     console.log(res);
                     this.setState({
@@ -56,7 +47,8 @@ class AddRecipeView extends React.Component {
                             source: '',
                             ingredients: '',
                             directions: '',
-                            category: ''
+                            category: '',
+                            user_id: ''
                         }
                     })
                 })
@@ -75,11 +67,9 @@ class AddRecipeView extends React.Component {
                     handleChange={this.handleChange}
                     recipe={this.state.recipe}
                     addRecipe={this.addRecipe}
-                    toggle={this.toggle}
-                    isOpen={this.state.dropdownOpen}
                 />
             </div>
-        )
+        );
     }
 }
 

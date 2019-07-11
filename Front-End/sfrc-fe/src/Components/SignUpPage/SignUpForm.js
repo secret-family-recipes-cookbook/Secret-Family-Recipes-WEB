@@ -23,7 +23,7 @@ function SignUpForm(props) {
                         name="password" 
                         placeholder="type a password" 
                         type="text" 
-                        step="1"
+                        
                         onChange={props.handleChanges}
                         value={props.user.password} 
                     />
