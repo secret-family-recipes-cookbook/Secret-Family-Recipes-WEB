@@ -32,8 +32,6 @@ class AddRecipeView extends React.Component {
         });
     };
 
-    }
-
     // makes axios call to post recipe & ingredients
     addRecipe = e => {
         e.preventDefault();
@@ -70,11 +68,9 @@ class AddRecipeView extends React.Component {
                     handleChange={this.handleChange}
                     recipe={this.state.recipe}
                     addRecipe={this.addRecipe}
-                    toggle={this.toggle}
-                    isOpen={this.state.dropdownOpen}
                 />
             </div>
-        )
+        );
     }
 }
 
