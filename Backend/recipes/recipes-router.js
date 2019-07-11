@@ -74,4 +74,17 @@ router.get('/', async (req, res) => {
         }
     })
 
+
+    router.get('/search', async (req, res) => {
+        console.log('Received search request', req.body.search);
+        try {
+          const recipe= await Recipes.getRecipeByName(req.body.search);
+          console.log(req.body.search);
+          res.status(200).json(recipe);
+        } catch (error) {
+          console.log(error);
+          res.status(500).json({message: 'Bad search term.', error: error});
+        }
+      });
+
     module.exports = router;
