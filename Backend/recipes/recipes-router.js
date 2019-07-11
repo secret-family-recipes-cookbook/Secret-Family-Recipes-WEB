@@ -78,7 +78,7 @@ router.get('/', async (req, res) => {
     router.get('/search', async (req, res) => {
         console.log('Received search request', req.body.search);
         try {
-          const recipe= await Recipes.getRecipeByName(req.body.search);
+          const recipe= await Recipes.getRecipeByName(req.body.search, req.body.id);
           console.log(req.body.search);
           res.status(200).json(recipe);
         } catch (error) {

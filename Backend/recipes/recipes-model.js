@@ -76,11 +76,13 @@ function findBy(filter) {
     return db('recipes').where(filter)
 }
 
-function getRecipeByName(searchString) {
+function getRecipeByName(searchString, user_id) {
     searchString = '%' + searchString + '%';
     console.log('Searching for', searchString);
     return db('recipes')
-    .where('title', 'like', searchString) 
-    .orWhere('category', 'like', searchString);
-  }
+    .where((builder) => 
+    builder.where('category', 'like', searchString)
+    .orWhere('title', 'like', searchString)) 
+    .andWhere({user_id: user_id});
+}
 
