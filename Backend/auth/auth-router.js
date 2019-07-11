@@ -4,20 +4,19 @@ const bcrypt = require('bcryptjs');
 const Users = require('../users/users-model.js');
 const tokenService = require('./token-service.js');
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
+    try {
     let user = req.body;
-    const hash = bcrypt.hashSync(user.password, 10)
+    const hash = bcrypt.hashSync(user.password, 10);
     user.password = hash;
-    Users.addUser(user)
-    .then(added => {
-        const token = tokenService.generateToken(added)
-        res.status(200).json({ message: `Welcome ${added.username}!`, token})
-    })
-    .catch(error => {
-        console.log(error);
-        res.status(500).json({ message: "Could not add new User."})
-    })
-})
+    const id = await Users.addUser(user);
+    console.log(id)
+    res.status(201).json({message: "User created with id of ", id: id.id})
+
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 router.post('/login', (req, res) => {
     let { username, password } = req.body;
