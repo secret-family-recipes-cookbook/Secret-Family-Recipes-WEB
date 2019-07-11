@@ -17,7 +17,7 @@ class App extends Component {
     this.state = {
       jwt: '',
       isLoggedIn: '',
-      
+      user_id: '',
     };
   }
 
@@ -67,23 +67,23 @@ class App extends Component {
         <Route exact path="/" component = {HomePage} />
 
         <Route exact path="/signup"
-          render={props => <SignUpPageView {...props} isLoggedIn={this.state.isLoggedIn}/> }
+          render={props => <SignUpPageView {...props} isLoggedIn={this.state.isLoggedIn} user_id={this.state.user_id}/> }
         />
 
         <Route exact path="/login"
-          render={props => <LoginPageView {...props} isLoggedIn={this.state.isLoggedIn}/> }
+          render={props => <LoginPageView {...props} isLoggedIn={this.state.isLoggedIn} user_id={this.state.user_id}/> }
         />
 
         <Route exact path="/recipes"
-          render={props => <RecipeListView {...props} /> }
+          render={props => <RecipeListView {...props} isLoggedIn={this.state.isLoggedIn} user_id={this.state.user_id}/> }
         />
 
         <Route exact path='/recipe-list/:id' 
-          render={props => <IndivRecipeView {...props} />}
+          render={props => <IndivRecipeView {...props} isLoggedIn={this.state.isLoggedIn} user_id={this.state.user_id}/>}
         />
 
         <Route exact path='/addrecipe' 
-          render={props => <AddRecipeView {...props} />}
+          render={props => <AddRecipeView {...props} isLoggedIn={this.state.isLoggedIn} user_id={this.state.user_id}/>}
         />
         
       </div>

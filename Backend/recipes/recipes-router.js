@@ -7,6 +7,7 @@ router.get('/', async (req, res) => {
         const recipes = await Recipes.getAllRecipes()
         res.status(200).json(recipes)
       } catch (error) {
+          console.log(error)
         res.status(500).json({
           message: 'An error occured while trying to retrieve recipes'
         })
@@ -36,6 +37,7 @@ router.get('/', async (req, res) => {
                 res.status(500).json({ message: 'Error adding recipe' })
             }
         } else {
+            console.log(error)
             res.status(400).json({ message: 'Error. Provide name for recipe'})
         }
     })

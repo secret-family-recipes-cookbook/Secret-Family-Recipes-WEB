@@ -13,6 +13,7 @@ class AddRecipeView extends React.Component {
                 ingredients: '',
                 directions: '',
                 category: '',
+                user_id: '',
             },  
         };       
     }
@@ -29,28 +30,30 @@ class AddRecipeView extends React.Component {
         });
     };
 
+    handleClick = () => {
+        
+        this.addRecipe();
+        window.location = "#/recipes"
+    }
+
     // makes axios call to post recipe & ingredients
-    addRecipe = e => {
-        e.preventDefault();
-        if (!this.state.recipe.title || !this.state.recipe.ingredients || this.state.recipe.directions || this.state.recipe.category) {
+    addRecipe = () => {
+        
+        if (!this.state.recipe.title || !this.state.recipe.ingredients || !this.state.recipe.directions || !this.state.recipe.category) {
             alert("Please fill out category, title, ingredients, and directions.");
         } else {
+            this.setState({
+                        recipe: Object.assign({}, this.state.recipe, {
+                            user_id: this.props.user_id
+                        })
+                    })
             // axios call to post recipe to recipe table
             axios
                 // .post('https://anthony-secret-family-recipes.herokuapp.com/api/recipes', this.state.recipe)
                 .post('http://localhost:2400/api/recipes', this.state.recipe)
                 .then(res => {
                     console.log(res);
-                    this.setState({
-                        recipe: {
-                            title: '',
-                            source: '',
-                            ingredients: '',
-                            directions: '',
-                            category: '',
-                            user_id: ''
-                        }
-                    })
+                    
                 })
                 .catch(err => {
                     console.log(err);
@@ -66,7 +69,8 @@ class AddRecipeView extends React.Component {
                 <AddRecipeForm 
                     handleChange={this.handleChange}
                     recipe={this.state.recipe}
-                    addRecipe={this.addRecipe}
+                    addRecipe={this.handleClick}
+                
                 />
             </div>
         );
