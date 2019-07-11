@@ -7,4 +7,8 @@ Get /api/auth/login  Logs in User
 Get /api/users  Retrieves all users
 Get /api/users/id Retrieves users by id
 
-Post /api/recipe  Adds new Recipe
+Post /api/recipes  Adds new Recipe
+
+PUT /api/recipes/:id  Edits recipe
+
+Delete /api/recipes/:id deletes specific recipe
