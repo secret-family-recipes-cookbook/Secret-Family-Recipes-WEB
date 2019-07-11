@@ -18,19 +18,6 @@ function AddRecipeForm(props) {
 
     return (
         <div className="RecipeForm">
-            <Dropdown isOpen={props.dropdownOpen}>
-                <DropdownToggle caret  onClick={props.toggle}>
-                    Recipe Categories
-                </DropdownToggle>
-
-                <DropdownMenu>
-                    <DropdownItem header>Please Select One</DropdownItem>
-                    <DropdownItem>Breakfast</DropdownItem>            
-                    <DropdownItem>Lunch</DropdownItem>
-                    <DropdownItem>Dinner</DropdownItem>
-                    <DropdownItem>Dessert</DropdownItem>
-                </DropdownMenu>
-            </Dropdown>
 
             <Form>
                 <FormGroup>
@@ -53,6 +40,17 @@ function AddRecipeForm(props) {
                         onChange={props.handleChange}
                         value={props.recipe.source}
                         />
+                </FormGroup>
+
+                <FormGroup>
+                    <Label for="recipe-ingredients">Ingredients</Label>
+                    <Input 
+                        type="textarea" 
+                        name="text" 
+                        placeholder="..."
+                        onChange={props.handleChange}
+                        value={props.recipe.ingredients}
+                    />
                 </FormGroup>
             
                 <FormGroup>

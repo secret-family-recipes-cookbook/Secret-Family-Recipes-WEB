@@ -14,10 +14,10 @@ class AddRecipeView extends React.Component {
                 directions: '',
                 category: '',
             },
-            dropdownOpen: false,
+           
         };
 
-        this.toggle = this.toggle.bind(this);
+        
     }
     
 
@@ -32,11 +32,6 @@ class AddRecipeView extends React.Component {
         });
     };
 
-    // toggles the dropdown 
-    toggle() {
-        this.setState(prevState => ({
-            dropdownOpen: !prevState.dropdownOpen
-        }));
     }
 
     // makes axios call to post recipe & ingredients
