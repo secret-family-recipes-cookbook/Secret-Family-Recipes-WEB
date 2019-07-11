@@ -1,11 +1,13 @@
 const db = require('../data/dbConfig')
+const mappers = require('./mappers');
 
 module.exports = {
     getAllRecipes,
     getRecipeById,
     addRecipe,
     removeRecipe,
-    updateRecipe
+    updateRecipe,
+    getRecipeByUserId
 }
 
 function getAllRecipes() {
@@ -32,6 +34,21 @@ function getRecipeById(id) {
         'recipes.category',
         'recipes.ingredients'
     )
+}
+
+function getRecipeByUserId(userId) {
+    return db('recipes')
+    .where('user_id', userId)
+    // .first()
+    // .select(
+    //     'recipes.id',
+    //     'recipes.title',
+    //     'recipes.source',
+    //     'recipes.instructions',
+    //     'recipes.category',
+    //     'recipes.ingredients'
+    // )
+    .then(recipes => recipes.map(recipe => mappers.recipeToBody(recipe)));
 }
 
 async function addRecipe(recipe) {

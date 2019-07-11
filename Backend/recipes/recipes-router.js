@@ -14,16 +14,17 @@ router.get('/', async (req, res) => {
       }
     })
 
-    router.get('/:id', async (req, res) => {
+    router.get('/:id/users', async (req, res) => {
         try {
-            const recipe = await Recipes.getRecipeById(req.params.id)
-            if (recipe) {
-                res.status(200).json(recipe)
+            const userRecipes = await Recipes.getRecipeByUserId(req.params.id);
+            if (userRecipes) {
+                res.status(200).json(userRecipes)
             } else {
-                res.status(404).json({ message: 'Cannot find requested recipe' })
+                res.status(404).json({ message: 'Cannot find requested recipes' });
             }
         } catch (error) {
-            res.status(500).json(error)
+            console.log(error)
+            res.status(500).json({message: 'The user recipes could not be retrieved.'})
         }
     })
 
