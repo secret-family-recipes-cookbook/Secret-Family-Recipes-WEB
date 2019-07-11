@@ -10,16 +10,17 @@ module.exports = {
 
 function getAllRecipes() {
     return db('recipes')
-    .join('categories', 'recipes.category_id', 'categories.id')
+    // .join('categories', 'recipes.category_id', 'categories.id')
     .select(
         'recipes.id',
-        'recipes.name',
+        'recipes.title',
         {
-            category: 'categories.name'
+            // category: 'categories.name'
         },
         'recipes.source',
         'recipes.instructions',
-        'recipes.ingedients'
+        'recipes.category',
+        'recipes.ingredients'
     )
 }
 
@@ -30,10 +31,13 @@ function getRecipeById(id) {
     // .join('categories', 'recipes.category_id', 'categories.id')
     .select(
         'recipes.id',
-        'recipes.name',
-        'recipes.category',
+        'recipes.title',
+        {
+            // category: 'categories.name'
+        },
         'recipes.source',
         'recipes.instructions',
+        'recipes.category',
         'recipes.ingredients'
     )
 }

@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
 
     router.post('/', async (req, res) => {
         const recipe = req.body;
-        if (recipe.name) {
+        if (recipe.title != null) {
             try {
                 const addedRec = await Recipes.addRecipe(recipe)
                 res.status(201).json(addedRec)

@@ -36,6 +36,7 @@ class LoginPageView extends React.Component {
                     localStorage.setItem('jwt', res.data.token);
                     localStorage.setItem('isLoggedIn', true);
                     localStorage.setItem('user_id', res.data.id);
+                    window.location.reload();
                     this.props.history.push('/recipes');                    
                 })
                 .catch(err => {
