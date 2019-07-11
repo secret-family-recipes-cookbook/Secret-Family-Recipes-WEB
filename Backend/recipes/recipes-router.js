@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
             if (count > 0) {
                 res.status(204).end()
             } else {
-                res.status(404).json({ message: 'No recipe found'})
+                res.status(404).json({ message: 'Recipe deleted'})
             }
         } catch (error) {
             res.status(500).json({ message: 'There was an error while attempting to remove that recipe'})
@@ -57,7 +57,7 @@ router.get('/', async (req, res) => {
 
     router.put('/:id', async (req, res) => {
         const changes = req.body;
-        if (changes.name) {
+        if (changes) {
             try {
                 const updated = await Recipes.updateRecipe(req.params.id, changes)
                 if (updated) {
