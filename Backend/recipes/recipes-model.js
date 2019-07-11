@@ -27,16 +27,14 @@ function getRecipeById(id) {
     return db('recipes')
     .where({ 'recipes.id': id })
     .first()
-    .join('categories', 'recipes.category_id', 'categories.id')
+    // .join('categories', 'recipes.category_id', 'categories.id')
     .select(
         'recipes.id',
         'recipes.name',
-        {
-            category: 'categories.name'
-        },
+        'recipes.category',
         'recipes.source',
         'recipes.instructions',
-        'recipes.ingedients'
+        'recipes.ingredients'
     )
 }
 

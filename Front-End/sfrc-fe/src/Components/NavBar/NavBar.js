@@ -12,9 +12,9 @@ const NavBar = props => {
 
                 <div className="link-container">
                 
-                    <Link to='/'>
+                    {/* <Link to='/'>
                         <h1>Home</h1>
-                    </Link>
+                    </Link> */}
 
                     <Link to='/signup'>
                         <h1>Sign Up</h1>

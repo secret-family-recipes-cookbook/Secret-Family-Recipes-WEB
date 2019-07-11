@@ -15,7 +15,7 @@ class LoginPageView extends React.Component {
     handleChanges = e => {
         this.setState({
             user: {
-                ...this.state.login,
+                ...this.state.user,
                 [e.target.name]: e.target.value
             } 
         });
@@ -24,17 +24,19 @@ class LoginPageView extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         // some error checking
-        if (!this.state.login.username || !this.state.login.password) {
+        if (!this.state.user.username || !this.state.user.password) {
             alert("Please provide a username and password.");
         } else {
             // axios call that checks the entered user name and password to the backend users table
             axios
-                .post('https://anthony-secret-family-recipes.herokuapp.com/api/auth/login', this.state.login)
+                .post('https://anthony-secret-family-recipes.herokuapp.com/api/auth/login', this.state.user)
+                // .post('http://localhost:2400/api/auth/login', this.state.user)
                 .then(res => {
                     console.log('response', res.data.token)
                     localStorage.setItem('jwt', res.data.token);
-                    this.props.isLoggedIn = true;
-                                         
+                    localStorage.setItem('isLoggedIn', true);
+                    localStorage.setItem('user_id', res.data.id);
+                    this.props.history.push('/recipes');                    
                 })
                 .catch(err => {
                     console.log(err);
@@ -52,7 +54,7 @@ class LoginPageView extends React.Component {
                 <LoginForm
                     handleChanges={this.handleChanges}
                     submitLogin={this.handleSubmit}
-                    login={this.state.user}
+                    user={this.state.user}
                 />
             </div>
         )
