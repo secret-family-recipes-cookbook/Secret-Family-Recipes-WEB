@@ -20,6 +20,18 @@ function AddRecipeForm(props) {
         <div className="RecipeForm">
 
             <Form>
+                
+                <FormGroup>
+                    <Label for="exampleSelect">Recipe Category</Label>
+                        <Input type="select" name="select" id="categorySelect">
+                            <option>Breakfast</option>
+                            <option>Lunch</option>
+                            <option>Dinner</option>
+                            <option>Dessert</option>
+                            
+                        </Input>
+                </FormGroup>
+
                 <FormGroup>
                     <Label for="recipe-title">Recipe Title</Label>
                     <Input 
