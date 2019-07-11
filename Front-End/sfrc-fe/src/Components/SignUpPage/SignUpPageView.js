@@ -33,8 +33,8 @@ class SignUpPageView extends React.Component {
         } else {
             // axios call that posts the user login info (username & password) to the backend users table
             axios
-            .post('https://anthony-secret-family-recipes.herokuapp.com/api/auth/register', this.state.user)
-            // .post('http://localhost:2400/api/auth/register', this.state.user)
+            // .post('https://anthony-secret-family-recipes.herokuapp.com/api/auth/register', this.state.user)
+            .post('http://localhost:2400/api/auth/register', this.state.user)
             .then(res => {
                 console.log(res, res.data.token)
                 localStorage.setItem('jwt', res.data.token);
