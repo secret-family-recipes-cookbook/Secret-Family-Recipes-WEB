@@ -30,6 +30,7 @@ router.get('/', async (req, res) => {
 
     router.post('/', async (req, res) => {
         const recipe = req.body;
+        console.log('Adding recipe.', recipe)
         if (recipe.title != null) {
             try {
                 const addedRec = await Recipes.addRecipe(recipe)
@@ -80,6 +81,7 @@ router.get('/', async (req, res) => {
         try {
           const recipe= await Recipes.getRecipeByName(req.body.search, req.body.id);
           console.log(req.body.search);
+          console.log(req.body.id);
           res.status(200).json(recipe);
         } catch (error) {
           console.log(error);

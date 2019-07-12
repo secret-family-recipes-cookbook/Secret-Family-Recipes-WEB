@@ -11,7 +11,7 @@ class AddRecipeView extends React.Component {
                 title: '',
                 source: '',
                 ingredients: '',
-                directions: '',
+                instructions: '',
                 category: '',
                 user_id: '',
             },  
@@ -30,37 +30,35 @@ class AddRecipeView extends React.Component {
         });
     };
 
-    handleClick = () => {
-        
-        this.addRecipe();
-        window.location = "#/recipes"
-    }
+
 
     // makes axios call to post recipe & ingredients
     addRecipe = () => {
+        console.log("Hello world");
         
-        if (!this.state.recipe.title || !this.state.recipe.ingredients || !this.state.recipe.directions || !this.state.recipe.category) {
-            alert("Please fill out category, title, ingredients, and directions.");
-        } else {
             this.setState({
-                        recipe: Object.assign({}, this.state.recipe, {
+                        recipe: {
+                            ...this.state.recipe,
                             user_id: this.props.user_id
-                        })
-                    })
+                        }
+                    }, () => { 
+            //console.log('setting recipe to state', this.state.recipe);
+            //console.log(this.props.user_id);
             // axios call to post recipe to recipe table
-            axios
-                // .post('https://anthony-secret-family-recipes.herokuapp.com/api/recipes', this.state.recipe)
+            return axios
+                
+                //.post('https://anthony-secret-family-recipes.herokuapp.com/api/recipes', this.state.recipe)
                 .post('http://localhost:2400/api/recipes', this.state.recipe)
                 .then(res => {
                     console.log(res);
-                    
+                    // this.props.history.push('/recipes');
                 })
                 .catch(err => {
                     console.log(err);
                     alert("Sorry, there was an error while adding your recipe.");
                 })
-        }   
-    }
+        })}
+    
 
     // renders the add recipe form component and passes it props
     render() {
@@ -69,7 +67,7 @@ class AddRecipeView extends React.Component {
                 <AddRecipeForm 
                     handleChange={this.handleChange}
                     recipe={this.state.recipe}
-                    addRecipe={this.handleClick}
+                    addRecipe={this.addRecipe}
                 
                 />
             </div>
