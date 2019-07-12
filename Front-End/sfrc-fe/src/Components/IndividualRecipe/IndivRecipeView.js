@@ -8,16 +8,16 @@ class IndivRecipeView extends React.Component {
         recipes: []
     };
 
-    componentDidMount() {
-        axios
-            .get('endpoint to get specific recipe/:id')
-            .then(res => {
-                console.log('response', res.data)
-            })
-            .catch(err => {
-                console.log('Error retrieving recipe', err);
-            });
-    }
+    // componentDidMount() {
+    //     axios
+    //         .get(`http://localhost:2400/api/recipes/${id}`, )
+    //         .then(res => {
+    //             console.log('response', res.data)
+    //         })
+    //         .catch(err => {
+    //             console.log('Error retrieving recipe', err);
+    //         });
+    // }
 
     render() {
         return (

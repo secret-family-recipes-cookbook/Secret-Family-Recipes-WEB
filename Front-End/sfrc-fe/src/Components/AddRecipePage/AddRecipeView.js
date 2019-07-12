@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import AddRecipeForm from './AddRecipeForm';
+import authenticate from '../Authentication/Authenticate';
 
 class AddRecipeView extends React.Component {
     constructor() {
@@ -47,8 +48,8 @@ class AddRecipeView extends React.Component {
             // axios call to post recipe to recipe table
             return axios
                 
-                //.post('https://anthony-secret-family-recipes.herokuapp.com/api/recipes', this.state.recipe)
-                .post('http://localhost:2400/api/recipes', this.state.recipe)
+                .post('https://anthony-secret-family-recipes.herokuapp.com/api/recipes', this.state.recipe)
+                //.post('http://localhost:2400/api/recipes', this.state.recipe)
                 .then(res => {
                     console.log(res);
                     window.location = "/recipes";
@@ -75,4 +76,4 @@ class AddRecipeView extends React.Component {
     }
 }
 
-export default AddRecipeView;
+export default authenticate(AddRecipeView);
