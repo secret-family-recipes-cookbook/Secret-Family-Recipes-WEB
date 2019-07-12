@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import './NavBar.css';
+// import './NavBar.css';
 
 
 const NavBar = props => {
@@ -12,30 +12,32 @@ const NavBar = props => {
 
                 <div className="link-container">
                 
-                    {/* <Link to='/'>
+                    {/* <Link to='/' class="links">
                         <h1>Home</h1>
                     </Link> */}
-                    <div>
-                    <Link to='/signup'>
+                    
+                    <Link to='/signup' class="links">
                         <h1>{props.isLoggedIn ? null : "Sign Up"}</h1>
                     </Link>
-                    </div>
+                    
 
-                    <Link to='/login'>
+                    <Link to='/login' class="links">
                         <h1>{props.isLoggedIn ? null : "Login"}</h1>
                     </Link>
 
-                    <Link to='/recipes'>
+                    <Link to='/recipes' class="links">
                         <h1>{props.isLoggedIn ? "Recipes" : null}</h1>
                     </Link>
                     
-                    <Link to='/addrecipe'>
+                    <Link to='/addrecipe' class="links">
                         <h1>{props.isLoggedIn ? "Add Recipe" : null}</h1>
                     </Link>
-
-                    <Link to='/' onClick={props.logout}>
+                    
+                    <Link to='/' onClick={props.logout} class="links" >
                         <h1>{props.isLoggedIn ? "Logout" : null}</h1>
                     </Link>
+
+                   
 
                 </div>
 

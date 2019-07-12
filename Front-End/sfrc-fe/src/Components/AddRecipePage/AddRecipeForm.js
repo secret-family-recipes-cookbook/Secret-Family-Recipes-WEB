@@ -17,9 +17,9 @@ function AddRecipeForm(props) {
     }
 
     return (
-        <div className="RecipeForm">
+        <div className="recipesForm">
 
-            <Form>
+            <Form class= "recipesForm">
 
                 {/* <FormGroup>
                     <Label for="recipe-category">Recipe Category</Label>
@@ -32,9 +32,9 @@ function AddRecipeForm(props) {
                         </Input>
                 </FormGroup> */}
 
-                    <FormGroup>
+                    <FormGroup class= "recipesForm">
                         <Label for="recipe-category">Recipe Title</Label>
-                            <Input 
+                            <Input class= "recipesForm"
                                 type="text" 
                                 name="category" 
                                 placeholder="Breakfast" 
