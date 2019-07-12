@@ -70,7 +70,7 @@ function AddRecipeForm(props) {
                         name="instructions" 
                         placeholder="..."
                         onChange={props.handleChange}
-                        value={props.recipe.directions}
+                        value={props.recipe.instructions}
                         required
                     />
                 </FormGroup>
