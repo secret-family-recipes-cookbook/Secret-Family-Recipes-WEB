@@ -44,7 +44,7 @@ class LoginPageView extends React.Component {
                     alert("Login failed. Please check username and password.");
                 })
 
-            // axios call that gets the user id
+            
         } 
     }
 

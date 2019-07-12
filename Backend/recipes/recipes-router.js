@@ -30,6 +30,21 @@ router.get('/', restricted, async (req, res) => {
         }
     })
 
+    router.get('/:id', async (req, res) => {
+        try {
+            const recipe = await Recipes.getRecipeById(req.params.id);
+            if (recipe) {
+                res.status(200).json(recipe)
+            } else {
+                res.status(404).json({ message: 'Cannot find requested recipe' });
+            }
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({message: 'The recipe could not be retrieved.'})
+        }
+    })
+
+
     router.post('/', restricted, async (req, res) => {
         const recipe = req.body;
         console.log('Adding recipe.', recipe)

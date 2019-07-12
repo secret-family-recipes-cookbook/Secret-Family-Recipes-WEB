@@ -27,7 +27,7 @@ class RecipeListView extends React.Component {
             return axios
                 
                 .put(`https://anthony-secret-family-recipes.herokuapp.com/api/recipes/${this.state.recipe.id}`, this.state.recipe)
-                //.post(`http://localhost:2400/api/recipes/${this.state.recipe.id}`, this.state.recipe)
+                //.put(`http://localhost:2400/api/recipes/${this.state.recipe.id}`, this.state.recipe)
                 .then(res => {
                     console.log(res);
                     window.location = "/recipes";
