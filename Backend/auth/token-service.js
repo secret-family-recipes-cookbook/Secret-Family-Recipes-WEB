@@ -8,8 +8,9 @@ module.exports = {
 function generateToken(user) {
     const payload = {
         subject: user.id,
-        username: user.username
-    }
+        username: user.username,
+        roles: ["user"]
+    };
     const options = {
         expiresIn: '1d'
     }
