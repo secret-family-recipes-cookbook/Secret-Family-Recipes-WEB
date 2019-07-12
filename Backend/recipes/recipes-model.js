@@ -20,7 +20,8 @@ function getAllRecipes() {
         'recipes.source',
         'recipes.instructions',
         'recipes.category',
-        'recipes.ingredients'
+        'recipes.ingredients',
+        'recipes.user_id'
     )
 }
 
@@ -79,6 +80,7 @@ function findBy(filter) {
 function getRecipeByName(searchString, user_id) {
     searchString = '%' + searchString + '%';
     console.log('Searching for', searchString);
+    console.log('User id', user_id);
     return db('recipes')
     .where((builder) => 
     builder.where('category', 'like', searchString)

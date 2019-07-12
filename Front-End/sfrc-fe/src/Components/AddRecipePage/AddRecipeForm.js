@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Button, Form, FormGroup, Label, Input, FormText, 
-    Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
 function AddRecipeForm(props) {
 
@@ -16,10 +15,14 @@ function AddRecipeForm(props) {
         props.toggle();
     }
 
+    const submitHandler = (e) =>{
+        e.preventDefault();
+        props.addRecipe()}
+
     return (
         <div className="recipesForm">
 
-            <Form class= "recipesForm">
+            <Form class= "recipesForm" onSubmit={submitHandler}>
 
                 {/* <FormGroup>
                     <Label for="recipe-category">Recipe Category</Label>
@@ -33,13 +36,14 @@ function AddRecipeForm(props) {
                 </FormGroup> */}
 
                     <FormGroup class= "recipesForm">
-                        <Label for="recipe-category">Recipe Title</Label>
+                        <Label for="recipe-category">Recipe Category</Label>
                             <Input class= "recipesForm"
                                 type="text" 
                                 name="category" 
                                 placeholder="Breakfast" 
                                 onChange={props.handleChange}
                                 value={props.recipe.category}
+                                required
                             />
                 </FormGroup>
 
@@ -51,6 +55,7 @@ function AddRecipeForm(props) {
                         placeholder="The Best Lasagna Ever" 
                         onChange={props.handleChange}
                         value={props.recipe.title}
+                        required
                         />
                 </FormGroup>
             
@@ -62,6 +67,7 @@ function AddRecipeForm(props) {
                         placeholder="Grandma Sue" 
                         onChange={props.handleChange}
                         value={props.recipe.source}
+                        required
                         />
                 </FormGroup>
 
@@ -73,6 +79,7 @@ function AddRecipeForm(props) {
                         placeholder="..."
                         onChange={props.handleChange}
                         value={props.recipe.ingredients}
+                        required
                     />
                 </FormGroup>
             
@@ -80,13 +87,14 @@ function AddRecipeForm(props) {
                     <Label for="recipe-directions">Directions</Label>
                     <Input 
                         type="textarea" 
-                        name="directions" 
+                        name="instructions" 
                         placeholder="..."
                         onChange={props.handleChange}
                         value={props.recipe.directions}
+                        required
                     />
                 </FormGroup>
-                <Button onClick={props.addRecipe}>Add Recipe</Button>
+                <Button type="submit">Add Recipe</Button>
            
             </Form>
         </div>
