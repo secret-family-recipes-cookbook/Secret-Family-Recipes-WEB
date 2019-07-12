@@ -10,6 +10,7 @@ import LoginPageView from './Components/LoginPage/LoginPageView';
 import RecipeListView from './Components/RecipesPage/RecipeListView';
 import IndivRecipeView from './Components/IndividualRecipe/IndivRecipeView';
 import AddRecipeView from './Components/AddRecipePage/AddRecipeView';
+import axios from 'axios'
 
 class App extends Component {
   constructor() {
@@ -18,12 +19,27 @@ class App extends Component {
       jwt: '',
       isLoggedIn: '',
       user_id: '',
+      recipes: ''
     };
   }
+  deleteRecipe(id,user) {
+    axios
+      .delete(`http://localhost:2400/api/recipes/${id}`)
+      .then(
+        axios
+              //.get(`https://anthony-secret-family-recipes.herokuapp.com/api/recipes/${value}/users`)
+              .get(`http://localhost:2400/api/recipes/${user}/users`)
+              .then(window.location = "/recipes")
+              .catch(err => {
+                  console.log('Error retrieving recipes: ', err);
+              })
+      )
 
+
+  }
   componentDidMount() {
     console.log("comp mounting");
-    this.hydrateStateWithLocalStorage();
+    this.hydrateStateWithLocalStorage()
    }
 
   hydrateStateWithLocalStorage() {
@@ -43,8 +59,27 @@ class App extends Component {
           // handle empty string
           this.setState({ [key]: value });
         }
+        if (key == 'user_id') {
+        console.log(value);
+        console.log('Logged in, fetching recipes')
+          axios
+              //.get(`https://anthony-secret-family-recipes.herokuapp.com/api/recipes/${value}/users`)
+              .get(`http://localhost:2400/api/recipes/${value}/users`)
+              .then(res => {
+                  console.log('response', res.data);
+                  this.setState(
+                      {
+                          recipes: res.data,
+                          
+                      }
+                  );
+              })
+              .catch(err => {
+                  console.log('Error retrieving recipes: ', err);
+              });}
       }
     }
+    return true
   }
 
   logout = () => {
@@ -75,7 +110,7 @@ class App extends Component {
         />
 
         <Route exact path="/recipes"
-          render={props => <RecipeListView {...props} isLoggedIn={this.state.isLoggedIn} user_id={this.state.user_id}/> }
+          render={props => <RecipeListView {...props} isLoggedIn={this.state.isLoggedIn} user_id={this.state.user_id} recipes={Array.from(this.state.recipes)} deleteRecipe={this.deleteRecipe}/> }
         />
 
         <Route exact path='/recipe-list/:id' 

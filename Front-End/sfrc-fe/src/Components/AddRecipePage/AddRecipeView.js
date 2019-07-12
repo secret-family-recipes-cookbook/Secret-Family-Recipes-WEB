@@ -51,7 +51,7 @@ class AddRecipeView extends React.Component {
                 .post('http://localhost:2400/api/recipes', this.state.recipe)
                 .then(res => {
                     console.log(res);
-                    // this.props.history.push('/recipes');
+                    window.location = "/recipes";
                 })
                 .catch(err => {
                     console.log(err);
