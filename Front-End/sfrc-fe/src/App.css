@@ -9,7 +9,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -30,4 +29,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.loginForm{
+  align-content: center;
+  align-items: center; 
+  justify-content: space-around;
+  font-family: 'Butterfly Kids', cursive;
+  margin: 5% auto; 
+  width: 500px;
+  background-color: #41B3A3;
+  padding: 30px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  
 }

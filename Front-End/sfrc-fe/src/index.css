@@ -5,9 +5,65 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./images/background4.jpg");
+  background-size: cover;
+  
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.links{
+  
+  margin: 0 0 0 20px;
+  color: black;
+}
+.links:hover{
+  text-decoration: underline black;
+  color: black;
+  }
+
+.navbar-wrapper { 
+  background: #E27D60;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.link-container {    
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 00px 10px;
+  height: 25%;
+}
+
+.recipesForm{
+  display: flex;
+  align-content: center;
+  align-items: center; 
+  justify-content: space-around;
+  font-family: 'Butterfly Kids', cursive;
+  margin: 20px auto; 
+  flex-direction: column;
+  border: 2px solid black;
+  align-content: center;
+  align-items: center; 
+  justify-content: space-around;
+  background-color: #41B3A3;
+  width:400px;
+  height: 600px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+}
+
+
