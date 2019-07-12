@@ -20,9 +20,9 @@ function AddRecipeForm(props) {
         props.addRecipe()}
 
     return (
-        <div className="RecipeForm">
+        <div className="recipesForm">
 
-            <Form onSubmit={submitHandler}>
+            <Form class= "recipesForm" onSubmit={submitHandler}>
 
                 {/* <FormGroup>
                     <Label for="recipe-category">Recipe Category</Label>
@@ -35,9 +35,9 @@ function AddRecipeForm(props) {
                         </Input>
                 </FormGroup> */}
 
-                    <FormGroup>
-                        <Label for="recipe-category">Recipe Title</Label>
-                            <Input 
+                    <FormGroup class= "recipesForm">
+                        <Label for="recipe-category">Recipe Category</Label>
+                            <Input class= "recipesForm"
                                 type="text" 
                                 name="category" 
                                 placeholder="Breakfast" 
