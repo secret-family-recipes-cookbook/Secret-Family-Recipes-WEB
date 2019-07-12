@@ -32,6 +32,7 @@ const Recipes = require('./recipes-model.js');
 
     router.post('/', restricted, async (req, res) => {
         const recipe = req.body;
+        console.log('Adding recipe.', recipe)
         if (recipe.title != null) {
             try {
                 const addedRec = await Recipes.addRecipe(recipe)
@@ -75,5 +76,19 @@ const Recipes = require('./recipes-model.js');
             res.status(400).json({ message: 'Name of recipe is required'})
         }
     })
+
+
+    router.get('/search', async (req, res) => {
+        console.log('Received search request', req.body.search);
+        try {
+          const recipe= await Recipes.getRecipeByName(req.body.search, req.body.id);
+          console.log(req.body.search);
+          console.log(req.body.id);
+          res.status(200).json(recipe);
+        } catch (error) {
+          console.log(error);
+          res.status(500).json({message: 'Bad search term.', error: error});
+        }
+      });
 
     module.exports = router;

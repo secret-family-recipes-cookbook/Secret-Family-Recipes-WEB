@@ -1,44 +1,46 @@
 import React from 'react';
 
-import { Card, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
-function RecipeList(props) {
-    //event handler that routes to individual recipe card
-    function routeToRecipe(e, recipe) {
-        e.preventDefault();
-        props.history.push(`/recipe-list/${recipe.id}`);
+class RecipeList extends React.Component {
+    constructor(props){
+        super(props);
     }
 
-    return (
-        <div><h1>Your recipes</h1></div>
-        // <div>
-        //     {props.recipes.filter((recipe) => (
-        //         recipe.userid = user.id
-        //     )).map((recipe) => (
-        //         <div>
-        //             <div
-        //                 onClick={e => routeToRecipe(e, recipe)}
-        //                 className="recipe-card"
-        //                 key={recipe.id}
-        //             >
+   
+    //event handler that routes to individual recipe card
+    routeToRecipe(e, recipe) {
+        e.preventDefault();
+        this.props.history.push(`/recipe-list/${recipe.id}`);
+    }
 
-        //             <Card className="recipe-card-list">
-        //                 <CardBody>
-        //                     <CardTitle>{recipe.title}</CardTitle>
-        //                     <CardSubtitle>From the kitchen of: {recipe.source}</CardSubtitle>
-        //                     <CardSubtitle>Category: {recipe.category}</CardSubtitle>
-        //                 </CardBody>
+    handleDelete = () => {
+        this.props.deleteRecipe(this.props.recipe.id,this.props.recipe.user_id)
+    }
 
-        //                 <CardBody>
-        //                     <CardText>{recipe.ingredients}</CardText>
-        //                     <CardText>{recipe.directions}</CardText>
-        //                 </CardBody>
-        //             </Card>
-        //             </div>
-        //         </div>
-        //     ))}
-        // </div>
-    )
+    render() {
+        
+        return (
+                    <div>
+                        <Card className="recipe-card-list">
+                         <CardBody>
+                             <CardTitle>{this.props.recipe.title}</CardTitle>
+                           <CardSubtitle>From the kitchen of: {this.props.recipe.source}</CardSubtitle>
+                             <CardSubtitle>Category: {this.props.recipe.category}</CardSubtitle>
+                         </CardBody>
+                         <CardBody>
+                             <CardText>{this.props.recipe.ingredients}</CardText>
+                             <CardText>{this.props.recipe.instructions}</CardText>
+                         </CardBody>
+                         <CardBody>
+                             <Button>Edit</Button>
+                             <Button onClick={this.handleDelete.bind(this)}>Delete</Button>
+                         </CardBody>
+                        </Card>
+                     </div>
+        )
+    }
+
 }
 
 export default RecipeList;
