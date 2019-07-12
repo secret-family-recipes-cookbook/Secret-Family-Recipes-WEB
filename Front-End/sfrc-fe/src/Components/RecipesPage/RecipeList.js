@@ -18,6 +18,10 @@ class RecipeList extends React.Component {
         this.props.deleteRecipe(this.props.recipe.id,this.props.recipe.user_id)
     }
 
+    handleEdit = () => {
+        this.props.toggleMode(this.props.recipe)
+    }
+
     render() {
         
         return (
@@ -33,7 +37,7 @@ class RecipeList extends React.Component {
                              <CardText>Instructions: {this.props.recipe.instructions}</CardText>
                          </CardBody>
                          <CardBody>
-                             <Button>Edit</Button>
+                             <Button onClick={this.handleEdit.bind(this)}>Edit</Button>
                              <Button onClick={this.handleDelete.bind(this)}>Delete</Button>
                          </CardBody>
                         </Card>

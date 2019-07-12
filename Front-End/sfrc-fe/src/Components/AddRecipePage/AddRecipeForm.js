@@ -4,16 +4,6 @@ import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
 function AddRecipeForm(props) {
 
-    // event handler that pushes the user to the recipes page upon recipe submission
-    // const handleClick = e => {
-    //     e.preventDefault();
-    //     props.addRecipe();
-    //     window.location = "#/recipes"
-    // }
-
-    const dropDownClick = e => {
-        props.toggle();
-    }
 
     const submitHandler = (e) =>{
         e.preventDefault();
@@ -24,16 +14,6 @@ function AddRecipeForm(props) {
 
             <Form class= "recipesForm" onSubmit={submitHandler}>
 
-                {/* <FormGroup>
-                    <Label for="recipe-category">Recipe Category</Label>
-                        <Input defaultValue="Breakfast" type="select" name="select" id="categorySelect" onChange={props.handleChange} value={props.recipe.category}>
-                            <option name="category" value="Breakfast">Breakfast</option>
-                            <option name="category" value="Lunch">Lunch</option>
-                            <option name="category" value="Dinner">Dinner</option>
-                            <option name="category" value="Dessert">Dessert</option>
-                            
-                        </Input>
-                </FormGroup> */}
 
                     <FormGroup class= "recipesForm">
                         <Label for="recipe-category">Recipe Category</Label>
@@ -94,7 +74,7 @@ function AddRecipeForm(props) {
                         required
                     />
                 </FormGroup>
-                <Button type="submit">Add Recipe</Button>
+                <Button type="submit">Save Recipe</Button>
            
             </Form>
         </div>

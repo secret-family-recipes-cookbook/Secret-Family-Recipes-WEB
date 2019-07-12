@@ -24,11 +24,12 @@ class App extends Component {
   }
   deleteRecipe(id,user) {
     axios
-      .delete(`http://localhost:2400/api/recipes/${id}`)
+      .delete(`https://anthony-secret-family-recipes.herokuapp.com/api/recipes/${id}`)
+      //.delete(`http://localhost:2400/api/recipes/${id}`)
       .then(
         axios
-              //.get(`https://anthony-secret-family-recipes.herokuapp.com/api/recipes/${value}/users`)
-              .get(`http://localhost:2400/api/recipes/${user}/users`)
+              .get(`https://anthony-secret-family-recipes.herokuapp.com/api/recipes/${user}/users`)
+              //.get(`http://localhost:2400/api/recipes/${user}/users`)
               .then(window.location = "/recipes")
               .catch(err => {
                   console.log('Error retrieving recipes: ', err);
@@ -37,6 +38,7 @@ class App extends Component {
 
 
   }
+
   componentDidMount() {
     console.log("comp mounting");
     this.hydrateStateWithLocalStorage()
@@ -59,12 +61,12 @@ class App extends Component {
           // handle empty string
           this.setState({ [key]: value });
         }
-        if (key == 'user_id') {
+        if (key === 'user_id') {
         console.log(value);
         console.log('Logged in, fetching recipes')
           axios
-              //.get(`https://anthony-secret-family-recipes.herokuapp.com/api/recipes/${value}/users`)
-              .get(`http://localhost:2400/api/recipes/${value}/users`)
+              .get(`https://anthony-secret-family-recipes.herokuapp.com/api/recipes/${value}/users`)
+              //.get(`http://localhost:2400/api/recipes/${value}/users`)
               .then(res => {
                   console.log('response', res.data);
                   this.setState(
@@ -113,8 +115,8 @@ class App extends Component {
           render={props => <RecipeListView {...props} isLoggedIn={this.state.isLoggedIn} user_id={this.state.user_id} recipes={Array.from(this.state.recipes)} deleteRecipe={this.deleteRecipe}/> }
         />
 
-        <Route exact path='/recipe-list/:id' 
-          render={props => <IndivRecipeView {...props} isLoggedIn={this.state.isLoggedIn} user_id={this.state.user_id}/>}
+        <Route exact path='/recipe-list/:id'
+          render={props => <IndivRecipeView {...props} isLoggedIn={this.state.isLoggedIn} user_id={this.state.user_id} recipes={Array.from(this.state.recipes)}/>}
         />
 
         <Route exact path='/addrecipe' 
