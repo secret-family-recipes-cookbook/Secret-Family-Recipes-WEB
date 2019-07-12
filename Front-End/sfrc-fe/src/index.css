@@ -65,5 +65,31 @@ code {
   -webkit-border-radius: 15px;
   
 }
+.recipe-card-list{
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center; 
+  justify-content: space-around;
+  font-family: 'Butterfly Kids', cursive;
+  margin: 20px; 
+  flex-direction: column;
+  border: 2px solid black;
+  align-content: center;
+  align-items: center; 
+  justify-content: space-around;
+  background-color: #41B3A3;
+  width:400px;
+  height: 400px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+}
+.addInfoInput{
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: underline;
+}
 
 

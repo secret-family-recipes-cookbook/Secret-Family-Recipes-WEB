@@ -18,22 +18,26 @@ class RecipeList extends React.Component {
         this.props.deleteRecipe(this.props.recipe.id,this.props.recipe.user_id)
     }
 
+    handleEdit = () => {
+        this.props.toggleMode(this.props.recipe)
+    }
+
     render() {
         
         return (
-                    <div>
-                        <Card className="recipe-card-list">
+                    <div className="recipe-card-list">
+                        <Card>
                          <CardBody>
-                             <CardTitle>{this.props.recipe.title}</CardTitle>
+                            <CardTitle className="addInfoInput">{this.props.recipe.title}</CardTitle>
+                            <CardSubtitle>Category: {this.props.recipe.category}</CardSubtitle>
                            <CardSubtitle>From the kitchen of: {this.props.recipe.source}</CardSubtitle>
-                             <CardSubtitle>Category: {this.props.recipe.category}</CardSubtitle>
                          </CardBody>
                          <CardBody>
-                             <CardText>{this.props.recipe.ingredients}</CardText>
-                             <CardText>{this.props.recipe.instructions}</CardText>
+                             <CardText>Ingredients: {this.props.recipe.ingredients}</CardText>
+                             <CardText>Instructions: {this.props.recipe.instructions}</CardText>
                          </CardBody>
                          <CardBody>
-                             <Button>Edit</Button>
+                             <Button onClick={this.handleEdit.bind(this)}>Edit</Button>
                              <Button onClick={this.handleDelete.bind(this)}>Delete</Button>
                          </CardBody>
                         </Card>

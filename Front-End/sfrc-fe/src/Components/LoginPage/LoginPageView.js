@@ -29,8 +29,8 @@ class LoginPageView extends React.Component {
         } else {
             // axios call that checks the entered user name and password to the backend users table
             axios
-                // .post('https://anthony-secret-family-recipes.herokuapp.com/api/auth/login', this.state.user)
-                .post('http://localhost:2400/api/auth/login', this.state.user)
+                .post('https://anthony-secret-family-recipes.herokuapp.com/api/auth/login', this.state.user)
+                //.post('http://localhost:2400/api/auth/login', this.state.user)
                 .then(res => {
                     console.log('response', res.data.token)
                     localStorage.setItem('jwt', res.data.token);
