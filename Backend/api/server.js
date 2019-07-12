@@ -12,8 +12,8 @@ const server = express();
 middleware(server);
 
 server.use('/api/auth', authRouter)
-server.use('/api/users', restricted, usersRouter)
-server.use('/api/recipes', restricted, recipesRouter)
+server.use('/api/users', usersRouter)
+server.use('/api/recipes', recipesRouter)
 // server.use('/api/categories', categoriesRouter)
 
 server.get('/', async (req, res) => {

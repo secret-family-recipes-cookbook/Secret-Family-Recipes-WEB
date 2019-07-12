@@ -4,17 +4,17 @@ const restricted = require('../auth/restricted-middleware');
 
 const Recipes = require('./recipes-model.js');
 
-// router.get('/', restricted, async (req, res) => {
-//     try {
-//         const recipes = await Recipes.getAllRecipes()
-//         res.status(200).json(recipes)
-//       } catch (error) {
-//           console.log(error)
-//         res.status(500).json({
-//           message: 'An error occured while trying to retrieve recipes'
-//         })
-//       }
-//     })
+router.get('/', restricted, async (req, res) => {
+    try {
+        const recipes = await Recipes.getAllRecipes()
+        res.status(200).json(recipes)
+      } catch (error) {
+          console.log(error)
+        res.status(500).json({
+          message: 'An error occured while trying to retrieve recipes'
+        })
+      }
+    })
 
     router.get('/:id/users', restricted, async (req, res) => {
         try {
